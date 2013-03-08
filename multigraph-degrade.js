@@ -34,11 +34,7 @@ var generateFlashObject = function (swfLoc, muglLoc, graphWidth, graphHeight) {
                                     );
 };
 
-var supportsSVG = function () {
-    return !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', "svg").createSVGRect;
-};
-
-if (!supportsSVG()) {
+if (!window.multigraph.core.browserHasCanvasSupport() && !window.multigraph.core.browserHasSVGSupport()) {
     window.multigraph.core.Multigraph.createGraph = function (options) {
         var swfLoc = options.swf ||
                      options.div.getAttribute("data-swf") ||
