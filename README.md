@@ -9,10 +9,10 @@ To use this functionality include the file after the declaration of Multigraph.
 
 If you have a local copy of the Multigraph _swf_ that you would like to use,
 then you can specify its location by either passing it as an option in your
-call to `createGraph` using a key of `swf`.
+call to `multigraph` using a key of `swf`.
 
 ```javascript
-$(".multigraph").createGraph({
+$(".multigraph").multigraph({
     "swf"  : "Path_to_Multigraph.swf"
     "mugl" : "Path_to_Mugl.xml"
 });
