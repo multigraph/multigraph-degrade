@@ -39,7 +39,7 @@ if (!window.multigraph.core.browserHasCanvasSupport() && !window.multigraph.core
         var deferred = window.multigraph.jQuery.Deferred(),
             swfLoc = options.swf ||
                      options.div.getAttribute("data-swf") ||
-                     "http://multigraph.github.com/archive/Multigraph-3.3rc1.swf";
+                     "http://multigraph.github.com/archive/Multigraph.swf";
 
         window.multigraph.jQuery(options.div).append(generateFlashObject(swfLoc,
                                                                          options.mugl,
