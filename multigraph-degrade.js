@@ -36,15 +36,19 @@ var generateFlashObject = function (swfLoc, muglLoc, graphWidth, graphHeight) {
 
 if (!window.multigraph.core.browserHasCanvasSupport() && !window.multigraph.core.browserHasSVGSupport()) {
     window.multigraph.core.Multigraph.createGraph = function (options) {
-        var swfLoc = options.swf ||
+        var deferred = window.multigraph.jQuery.Deferred(),
+            swfLoc = options.swf ||
                      options.div.getAttribute("data-swf") ||
                      "http://multigraph.github.com/archive/Multigraph-3.3rc1.swf";
+
         window.multigraph.jQuery(options.div).append(generateFlashObject(swfLoc,
                                                                          options.mugl,
                                                                          parseInt(options.div.offsetWidth, 10),
                                                                          parseInt(options.div.offsetHeight, 10)
                                                    )
                                );
+        deferred.resolve();
+        return deferred.promise();
     };
     window.multigraph.create = window.multigraph.core.Multigraph.createGraph;
 }
